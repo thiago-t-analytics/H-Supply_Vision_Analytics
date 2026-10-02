@@ -1,0 +1,229 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ─── IMAGEM DE FUNDO ─── */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px) brightness(0.85) saturate(1.1);
+    transform: scale(1.05);
+    z-index: 1;
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.12); }
+}
+
+/* ─── OVERLAY GRADIENTE ─── */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(10,40,80,0.65) 100%),
+        linear-gradient(180deg, rgba(10,40,80,0.35) 0%, rgba(10,40,80,0.75) 100%);
+    z-index: 2;
+}
+
+/* ─── CONTEÚDO ─── */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    max-width: 900px;
+    animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+}
+
+.logo-img {
+    max-width: 480px;
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* ─── BADGE DE SUCESSO ─── */
+.success-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(38, 222, 129, 0.18);
+    border: 1.5px solid rgba(38, 222, 129, 0.5);
+    color: #6effb0;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.8rem;
+    backdrop-filter: blur(10px);
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(38, 222, 129, 0.4); }
+    50%      { box-shadow: 0 0 0 12px rgba(38, 222, 129, 0); }
+}
+
+.success-badge .check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #26de81;
+    color: #0a2848;
+    border-radius: 50%;
+    font-weight: 900;
+    font-size: 0.75rem;
+}
+
+/* ─── TÍTULOS ─── */
+.hero-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.highlight {
+    background: linear-gradient(90deg, #4fc3f7, #81c784);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+}
+
+/* ─── ESTATÍSTICAS ─── */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    text-shadow: 0 2px 12px rgba(79, 195, 247, 0.4);
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ─── BOTÃO ─── */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: linear-gradient(135deg, #1e88e5, #43a047);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 30px rgba(30, 136, 229, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #43a047, #1e88e5);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(30, 136, 229, 0.55);
+}
+
+.cta-button:hover::before { opacity: 1; }
+
+.cta-button > * { position: relative; z-index: 1; }
+
+.cta-button svg { transition: transform 0.3s; }
+.cta-button:hover svg { transform: translateX(5px); }
+
+/* ─── POWERED BY ─── */
+.powered-by {
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    letter-spacing: 0.05em;
+}
+
+.powered-by strong {
+    color: #4fc3f7;
+    font-weight: 700;
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 600px) {
+    .hero-stats { gap: 1.5rem; }
+    .stat-number { font-size: 1.6rem; }
+    .stat-label { font-size: 0.7rem; }
+    .logo-img { max-width: 320px; }
+    .cta-button { padding: 0.9rem 2rem; font-size: 1rem; }
+}

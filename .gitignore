@@ -1,1 +1,22 @@
+# ─── Credenciais e Segredos ───
 .env
+*.env
+.env.local
+
+# ─── Scripts internos de migração ───
+migrar_gold_v2.py
+migrar_gold_v3.py
+teste_gold.py
+gold_schema_only.sql
+gold_dump.sql
+
+# ─── Python ───
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ─── Editores ───
+.vscode/
+.idea/
+*.code-workspace
