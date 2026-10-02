@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Teste — HRIV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard de Teste</h1>
+        <p>Validando conexão com o Supabase</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Status da Conexão</h2>
+            <p id="status">Conectando...</p>
+        </section>
+
+        <section class="card">
+            <h2>Contagem de Registros</h2>
+            <table id="contagens">
+                <thead>
+                    <tr><th>Tabela</th><th>Linhas</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Últimos 10 Pacientes</h2>
+            <ul id="lista-pacientes"></ul>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f6fa;
+    color: #2c3e50;
+    padding: 2rem;
+}
+
+header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #dfe4ea;
+}
+
+header h1 { color: #1e3799; }
+header p { color: #6c757d; margin-top: 0.3rem; }
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 1200px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    grid-column: span 2;
+}
+
+.card:first-child { grid-column: span 1; }
+.card:nth-child(2) { grid-column: span 1; }
+
+.card h2 {
+    font-size: 1.1rem;
+    color: #1e3799;
+    margin-bottom: 1rem;
+}
+
+#status { font-weight: 600; padding: 0.5rem; border-radius: 5px; }
+#status.ok { color: #26de81; background: #d1fae5; }
+#status.erro { color: #eb3b5a; background: #ffe4e6; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #eee; }
+th { color: #6c757d; font-size: 0.85rem; text-transform: uppercase; }
+
+#lista-pacientes li {
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    main { grid-template-columns: 1fr; }
+    .card, .card:first-child, .card:nth-child(2) { grid-column: span 1; }
+}
